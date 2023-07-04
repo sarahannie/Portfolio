@@ -2,12 +2,13 @@ import Post from "@/models/Post";
 import connect from "@/utils/db";
 import { NextResponse } from "next/server";
 
-export const GET = async(req, rep) =>{
+export const GET = async(request) =>{
+    
     try{
-        await connect()
+        await connect();
         const posts = await Post.find()
-        return NextResponse(posts, {status:500})
+        return new NextResponse(JSON.stringify(posts), {status:200})
     }catch(err){
-        return NextResponse("Database Error", {status:500})
+        return new NextResponse("Database Error", {status:500})
     }
 }

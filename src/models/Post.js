@@ -1,15 +1,15 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose from "mongoose";
 
+const { Schema } = mongoose;
 
 const postSchema =  new Schema({
     title:{
         type:String,
-        unique:true,
         require:true
     },
     desc:{
         type:String,
-        unique:true,
+        
         require:true
     },
     username:{
@@ -18,7 +18,7 @@ const postSchema =  new Schema({
     },
     img:{
         type:String,
-        require:true
+        
     },
     contect:{
         type:String,
@@ -29,4 +29,4 @@ const postSchema =  new Schema({
 {timestaps:true})
 
 
-export default mongoose.model("User", postSchema)
+export default mongoose.models.Post || mongoose.model("Post", postSchema);
