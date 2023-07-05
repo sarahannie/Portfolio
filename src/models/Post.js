@@ -18,7 +18,7 @@ const postSchema =  new Schema({
     },
     img:{
         type:String,
-        
+        require:true
     },
     contect:{
         type:String,
