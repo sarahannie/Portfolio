@@ -2,31 +2,31 @@ import mongoose from "mongoose";
 
 const { Schema } = mongoose;
 
-const postSchema =  new Schema({
-    title:{
-        type:String,
-        require:true
+const postSchema = new Schema(
+  {
+    title: {
+      type: String,
+      required: true,
     },
-    desc:{
-        type:String,
-        
-        require:true
+    desc: {
+      type: String,
+      required: true,
     },
-    username:{
-        type:String,
-        require:true
+    img: {
+      type: String,
+      
     },
-    img:{
-        type:String,
-        require:true
+    content: {
+      type: String,
+      required: true,
     },
-    contect:{
-        type:String,
-        require:true
+    username: {
+      type: String,
+      required: true,
     },
-    
-},
-{timestaps:true})
+  },
+  { timestamps: true }
+);
 
-
+//If the Post collection does not exist create a new one.
 export default mongoose.models.Post || mongoose.model("Post", postSchema);
